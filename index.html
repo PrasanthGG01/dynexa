@@ -1,1469 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynexa Digital Shine | Digital Marketing Agency</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #7c3aed;
-            --accent: #06b6d4;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --light-gray: #e2e8f0;
-            --success: #10b981;
-            --gradient: linear-gradient(135deg, #0856ff 0%, #0856ff 50%, #0856ff 100%);
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--dark);
-            background-color: white;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto 50px;
-            font-size: 1.1rem;
-        }
-
-        .text-gradient {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 30px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            outline: none;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-        }
-
-        .btn-whatsapp:hover {
-            background: #128C7E;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            padding: 20px 0;
-            transition: var(--transition);
-        }
-
-        .header-scrolled {
-            padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Logo Styles with Image */
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-image {
-            height: 45px;
-            width: auto;
-            border-radius: 8px;
-        }
-
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--dark);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 160px 0 100px;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(124, 58, 237, 0.03) 50%, rgba(6, 182, 212, 0.03) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 30px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: block;
-        }
-
-        .stat-text {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* About Us Section */
-        .about {
-            background: white;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-stats {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .about-stat-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--primary);
-        }
-
-        .about-stat-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .about-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            color: var(--gray);
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--dark);
-            font-weight: 500;
-        }
-
-        .feature-item i {
-            color: var(--success);
-        }
-
-        /* Services Section */
-        .services {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.02) 0%, rgba(124, 58, 237, 0.02) 50%, rgba(6, 182, 212, 0.02) 100%);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 15px;
-            padding: 35px 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--light-gray);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: white;
-            font-size: 1.8rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .service-card p {
-            color: var(--gray);
-        }
-
-        /* Pricing Section */
-        .pricing {
-            background: white;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .pricing-card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            border: 1px solid var(--light-gray);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .pricing-card.popular {
-            border: 2px solid var(--primary);
-            transform: scale(1.05);
-        }
-
-        .pricing-card.popular:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gradient);
-            color: white;
-            padding: 8px 25px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            box-shadow: var(--shadow);
-        }
-
-        .plan-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .plan-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .plan-name.text-gradient {
-            font-size: 2rem;
-        }
-
-        .plan-type {
-            color: var(--primary);
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .plan-description {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-        }
-
-        .plan-features {
-            margin-bottom: 30px;
-        }
-
-        .plan-features li {
-            padding: 10px 0;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .plan-features li:last-child {
-            border-bottom: none;
-        }
-
-        .plan-features li i {
-            color: var(--success);
-            flex-shrink: 0;
-        }
-
-        .plan-bonus {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(124, 58, 237, 0.05) 50%, rgba(6, 182, 212, 0.05) 100%);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .bonus-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .bonus-text {
-            font-size: 0.95rem;
-            color: var(--dark);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
-            color: white;
-        }
-
-        .contact .section-title,
-        .contact .section-subtitle {
-            color: white;
-        }
-
-        .contact .section-subtitle {
-            opacity: 0.9;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .contact-text h4 {
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-
-        .contact-text p,
-        .contact-text a {
-            opacity: 0.9;
-            transition: var(--transition);
-        }
-
-        .contact-text a:hover {
-            opacity: 1;
-            color: var(--accent);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background: var(--gradient);
-            transform: translateY(-3px);
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 40px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 40px;
-        }
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-description {
-            opacity: 0.7;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .footer-links h3,
-        .footer-contact h3 {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            color: white;
-        }
-
-        .footer-links ul {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-links a {
-            opacity: 0.7;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--accent);
-        }
-
-        .footer-contact p {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            opacity: 0.7;
-        }
-
-        .footer-contact i {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.5;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-content,
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 50px;
-                text-align: center;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .hero-stats {
-                justify-content: center;
-            }
-            
-            .about-stats {
-                order: 2;
-            }
-            
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-            
-            .pricing-card.popular {
-                transform: none;
-            }
-            
-            .pricing-card.popular:hover {
-                transform: translateY(-10px);
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 30px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: var(--transition);
-                z-index: 999;
-            }
-            
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .about-features {
-                grid-template-columns: 1fr;
-            }
-            
-            .logo-image {
-                height: 35px;
-            }
-            
-            .logo-text {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .section {
-                padding: 60px 0;
-            }
-            
-            .hero {
-                padding: 140px 0 80px;
-            }
-            
-            .hero-text h1 {
-                font-size: 1.8rem;
-            }
-            
-            .stat-number {
-                font-size: 1.8rem;
-            }
-            
-            .contact-form {
-                padding: 30px 20px;
-            }
-            
-            .service-card,
-            .pricing-card {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynexa Agency | Digital Marketing & Creative Studio</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Dynexa Agency helps businesses grow with SEO, Ads, Social Media, Content & Websites. Get more leads, sales and visibility." />
+  <meta name="keywords" content="Dynexa Agency, digital marketing, SEO, social media marketing, meta ads, google ads, website development, coimbatore" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Header & Navigation - WITH IMAGE LOGO -->
-    <header id="header">
-        <div class="container">
-            <nav class="nav-container">
-                <!-- LOGO WITH IMAGE - ADDED AS REQUESTED -->
-                <a href="#home" class="logo">
-                    <img src="your-logo-image.png" alt="Dynexa Agency Logo" class="logo-image">
-                    <span class="logo-text">Dynexa</span>
-                </a>
-                
-                <div class="nav-links" id="navLinks">
-                    <a href="#home">Home</a>
-                    <a href="#about">About Us</a>
-                    <a href="#services">Our Services</a>
-                    <a href="#pricing">Pricing</a>
-                    <a href="#contact">Contact</a>
-                    <a href="https://wa.me/918220851828" target="_blank" class="btn btn-whatsapp" style="padding: 10px 20px;">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                </div>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Dynexa Agency Home">
+        <img src="your-logo-image.png" alt="Dynexa Logo" class="brand-logo" />
+        <span class="brand-text">Dynexa</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#contact" class="nav-link">Contact</a>
+
+        <a class="nav-cta" href="https://wa.me/918220851828" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-card">
+      <div class="mobile-menu-top">
+        <div class="mobile-title">Menu</div>
+        <button class="close-btn" id="closeMenu" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="mobile-links">
+        <a href="#home" class="m-link">Home</a>
+        <a href="#about" class="m-link">About</a>
+        <a href="#services" class="m-link">Services</a>
+        <a href="#pricing" class="m-link">Pricing</a>
+        <a href="#contact" class="m-link">Contact</a>
+      </div>
+
+      <a class="btn btn-whatsapp full" href="https://wa.me/918220851828" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-left reveal">
+        <div class="pill">
+          <i class="fa-solid fa-bolt"></i>
+          Results-driven Digital Marketing
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Grow Your Business with <span class="text-gradient">Dynexa Digital Shine</span></h1>
-                    <p>We transform your digital presence with creative strategies, stunning designs, and data-driven marketing that generates real leads and grows your brand.</p>
-                    
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Get Started
-                        </a>
-                        <a href="#services" class="btn" style="background: transparent; border: 2px solid var(--primary); color: var(--primary);">
-                            <i class="fas fa-eye"></i> View Services
-                        </a>
-                    </div>
-                    
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-text">Happy Clients</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-text">Projects Completed</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">24/7</span>
-                            <span class="stat-text">Dedicated Support</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Digital Marketing Team Collaboration">
-                </div>
-            </div>
+        <h1 class="hero-title">
+          Grow Your Business with <span class="grad">Dynexa Agency</span>
+        </h1>
+
+        <p class="hero-sub">
+          We help brands get <b>more leads</b>, <b>more sales</b>, and <b>more visibility</b> through
+          Ads, SEO, Social Media & High-converting Websites.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i> Get Started
+          </a>
+
+          <a href="#services" class="btn btn-outline">
+            <i class="fa-solid fa-layer-group"></i> View Services
+          </a>
         </div>
-    </section>
 
-    <!-- About Us Section -->
-    <section class="about section" id="about">
-        <div class="container">
-            <h2 class="section-title">About <span class="text-gradient">Us</span></h2>
-            <p class="section-subtitle">We Help Businesses Thrive Online</p>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>We Help Businesses Thrive Online</h2>
-                    <p>Dynexa is a full-service digital marketing agency dedicated to transforming your online presence. We combine creativity with data-driven strategies to deliver measurable results that drive growth and success for your business.</p>
-                    
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Data-driven marketing strategies</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>24/7 client support</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Results-oriented approach</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Transparent communication</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Dedicated project managers</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Competitive pricing</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="about-stats">
-                    <div class="about-stat-item">
-                        <div class="about-stat-icon">
-                            <i class="fas fa-smile"></i>
-                        </div>
-                        <div>
-                            <div class="stat-number">5+</div>
-                            <div class="stat-text">Happy Clients</div>
-                        </div>
-                    </div>
-                    
-                    <div class="about-stat-item">
-                        <div class="about-stat-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <div>
-                            <div class="stat-number">10+</div>
-                            <div class="stat-text">Projects Completed</div>
-                        </div>
-                    </div>
-                    
-                    <div class="about-stat-item">
-                        <div class="about-stat-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <div>
-                            <div class="stat-number">24/7</div>
-                            <div class="stat-text">Dedicated Support</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="trust">
+          <div class="trust-item"><i class="fa-solid fa-circle-check"></i> Fast Delivery</div>
+          <div class="trust-item"><i class="fa-solid fa-circle-check"></i> Affordable Plans</div>
+          <div class="trust-item"><i class="fa-solid fa-circle-check"></i> Real Results</div>
         </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services section" id="services">
-        <div class="container">
-            <h2 class="section-title">Our <span class="text-gradient">Services</span></h2>
-            <p class="section-subtitle">What We Offer - Comprehensive digital marketing solutions tailored to your business needs</p>
-            
-            <div class="services-grid">
-                <!-- Website Creation -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Website Creation</h3>
-                    <p>Custom, responsive websites that convert visitors into customers</p>
-                </div>
-
-                <!-- SEO Optimization -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>SEO Optimization</h3>
-                    <p>Boost your search rankings and organic traffic</p>
-                </div>
-
-                <!-- Meta & Google Ads -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Meta & Google Ads</h3>
-                    <p>High-ROI advertising campaigns on major platforms</p>
-                </div>
-
-                <!-- Social Media Marketing -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hashtag"></i>
-                    </div>
-                    <h3>Social Media Marketing</h3>
-                    <p>Strategic campaigns to grow your social presence</p>
-                </div>
-
-                <!-- Social Media Handling -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>Social Media Handling</h3>
-                    <p>Complete management of your social media accounts</p>
-                </div>
-
-                <!-- Lead Generation -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Lead Generation</h3>
-                    <p>Qualified leads that drive business growth</p>
-                </div>
-
-                <!-- Video Editing / Reels -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3>Video Editing / Reels</h3>
-                    <p>Engaging video content that captures attention</p>
-                </div>
-
-                <!-- Poster Making -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Poster Making</h3>
-                    <p>Eye-catching graphics and promotional materials</p>
-                </div>
-
-                <!-- Email Marketing -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email Marketing</h3>
-                    <p>Targeted email campaigns that convert</p>
-                </div>
-
-                <!-- Influencer Marketing -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Influencer Marketing</h3>
-                    <p>Connect with influencers to amplify your brand</p>
-                </div>
-
-                <!-- Ad Shoot -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-camera"></i>
-                    </div>
-                    <h3>Ad Shoot</h3>
-                    <p>Professional photography and videography for ads</p>
-                </div>
-
-                <!-- Content Creation -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-pen-fancy"></i>
-                    </div>
-                    <h3>Content Creation</h3>
-                    <p>Compelling content that tells your brand story</p>
-                </div>
-            </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">10+</div>
+            <div class="stat-txt">Projects</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">5+</div>
+            <div class="stat-txt">Happy Clients</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">24/7</div>
+            <div class="stat-txt">Support</div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Pricing Section -->
-    <section class="pricing section" id="pricing">
-        <div class="container">
-            <h2 class="section-title">Pricing - <span class="text-gradient">Choose Your Plan</span></h2>
-            <p class="section-subtitle">Flexible packages designed to fit your business needs and budget</p>
-            
-            <div class="pricing-grid">
-                <!-- Basic Plan -->
-                <div class="pricing-card">
-                    <div class="plan-header">
-                        <h3 class="plan-name text-gradient">BASIC PLAN</h3>
-                        <p class="plan-type">"Starter Boost"</p>
-                        <p class="plan-description">Best for small startups & local businesses</p>
-                    </div>
-                    
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> Social Media Handling (2 platforms)</li>
-                        <li><i class="fas fa-check"></i> 12 Posts / month (Poster making)</li>
-                        <li><i class="fas fa-check"></i> 8 Stories / month</li>
-                        <li><i class="fas fa-check"></i> 2 Reels / month (Video editing included)</li>
-                        <li><i class="fas fa-check"></i> Basic Hashtag + Caption</li>
-                        <li><i class="fas fa-check"></i> Basic SEO Suggestions</li>
-                        <li><i class="fas fa-check"></i> Monthly Report</li>
-                    </ul>
-                    
-                    <div class="plan-bonus">
-                        <div class="bonus-title">FREE BONUS</div>
-                        <div class="bonus-text">Profile Optimization (Instagram + Facebook)</div>
-                    </div>
-                    
-                    <a href="https://wa.me/918220851828?text=Hi%20Dynexa!%20I'm%20interested%20in%20your%20BASIC%20PLAN%20(Starter%20Boost).%20Can%20you%20provide%20more%20details?" 
-                       target="_blank" class="btn btn-whatsapp" style="width: 100%;">
-                        <i class="fab fa-whatsapp"></i> DM on WhatsApp for pricing
-                    </a>
-                </div>
-                
-                <!-- Standard Plan (Most Popular) -->
-                <div class="pricing-card popular">
-                    <div class="popular-badge">Most Popular</div>
-                    <div class="plan-header">
-                        <h3 class="plan-name text-gradient">STANDARD PLAN</h3>
-                        <p class="plan-type">"Growth Plan"</p>
-                        <p class="plan-description">Best for brands who want leads + growth</p>
-                    </div>
-                    
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> Social Media Handling (2–3 platforms)</li>
-                        <li><i class="fas fa-check"></i> 16 Posts / month</li>
-                        <li><i class="fas fa-check"></i> 12 Stories / month</li>
-                        <li><i class="fas fa-check"></i> 4 Reels / month (Video editing included)</li>
-                        <li><i class="fas fa-check"></i> SEO Optimization (On-page basic)</li>
-                        <li><i class="fas fa-check"></i> Lead Generation Setup (Meta)</li>
-                        <li><i class="fas fa-check"></i> Meta Ads Campaign (Setup + Monitoring)</li>
-                        <li><i class="fas fa-check"></i> Monthly Performance Report</li>
-                    </ul>
-                    
-                    <div class="plan-bonus">
-                        <div class="bonus-title">FREE BONUS</div>
-                        <div class="bonus-text">1 Poster Design + 1 Ad Shoot Planning Support</div>
-                    </div>
-                    
-                    <a href="https://wa.me/918220851828?text=Hi%20Dynexa!%20I'm%20interested%20in%20your%20STANDARD%20PLAN%20(Growth%20Plan).%20Can%20you%20provide%20more%20details?" 
-                       target="_blank" class="btn btn-primary" style="width: 100%;">
-                        <i class="fab fa-whatsapp"></i> DM on WhatsApp for pricing
-                    </a>
-                </div>
-                
-                <!-- Premium Plan -->
-                <div class="pricing-card">
-                    <div class="plan-header">
-                        <h3 class="plan-name text-gradient">PREMIUM PLAN</h3>
-                        <p class="plan-type">"Scale Pro"</p>
-                        <p class="plan-description">Best for serious growth + ads + content</p>
-                    </div>
-                    
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> Website Creation (Basic 1-page / Landing page)</li>
-                        <li><i class="fas fa-check"></i> Full SEO Optimization (On-page + Technical basic)</li>
-                        <li><i class="fas fa-check"></i> Social Media Handling (3 platforms)</li>
-                        <li><i class="fas fa-check"></i> 20 Posts / month</li>
-                        <li><i class="fas fa-check"></i> 20 Stories / month</li>
-                        <li><i class="fas fa-check"></i> 8 Reels / month (Editing + Subtitles)</li>
-                        <li><i class="fas fa-check"></i> Meta + Google Ads Campaign (Setup + Optimization)</li>
-                        <li><i class="fas fa-check"></i> Lead Generation + Funnel Setup</li>
-                        <li><i class="fas fa-check"></i> Email Marketing (2 campaigns / month)</li>
-                        <li><i class="fas fa-check"></i> Influencer Marketing (1 collaboration support)</li>
-                        <li><i class="fas fa-check"></i> Monthly Strategy Call + Report</li>
-                    </ul>
-                    
-                    <div class="plan-bonus">
-                        <div class="bonus-title">FREE BONUS</div>
-                        <div class="bonus-text">1 Ad Shoot Planning Support + Content Calendar</div>
-                    </div>
-                    
-                    <a href="https://wa.me/918220851828?text=Hi%20Dynexa!%20I'm%20interested%20in%20your%20PREMIUM%20PLAN%20(Scale%20Pro).%20Can%20you%20provide%20more%20details?" 
-                       target="_blank" class="btn btn-whatsapp" style="width: 100%;">
-                        <i class="fab fa-whatsapp"></i> DM on WhatsApp for pricing
-                    </a>
-                </div>
+      <div class="hero-right reveal">
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <div class="hero-badge">
+              <i class="fa-solid fa-chart-line"></i> Growth Dashboard
             </div>
+            <div class="hero-mini">
+              <span class="dot"></span> Live Campaign Monitoring
+            </div>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric">
+              <div class="metric-title">Leads</div>
+              <div class="metric-value">+150</div>
+              <div class="metric-sub">in 10 days</div>
+            </div>
+            <div class="metric">
+              <div class="metric-title">Reach</div>
+              <div class="metric-value">+120%</div>
+              <div class="metric-sub">in 30 days</div>
+            </div>
+            <div class="metric">
+              <div class="metric-title">ROI</div>
+              <div class="metric-value">3.2x</div>
+              <div class="metric-sub">avg campaigns</div>
+            </div>
+          </div>
+
+          <div class="hero-note">
+            <i class="fa-solid fa-shield-heart"></i>
+            We focus on quality leads & real conversions.
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Contact Section -->
-    <section class="contact section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Ready to <span class="text-gradient">Grow Your Business?</span></h2>
-            <p class="section-subtitle">Get in touch with us today! We'll help you achieve your digital marketing goals.</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <a href="tel:+918220851828">+91 82208 51828</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <a href="mailto:dynexa.agency@gmail.com">dynexa.agency@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Instagram</h4>
-                                <a href="https://instagram.com/dynexa.agency" target="_blank" rel="noopener noreferrer">@dynexa.agency</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Location</h4>
-                                <p>Coimbatore, Tamil Nadu</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://instagram.com/dynexa.agency" target="_blank" rel="noopener noreferrer" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/918220851828" target="_blank" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:dynexa.agency@gmail.com" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>Send a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
-                        </button>
-                    </form>
-                </div>
-            </div>
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>About <span class="grad">Dynexa</span></h2>
+        <p>
+          We are a creative + performance marketing agency helping local businesses and brands scale faster.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-left reveal">
+          <h3>We help businesses thrive online.</h3>
+          <p class="muted">
+            Dynexa Agency combines creative content with data-driven marketing strategies.
+            From social media handling to ads & SEO — we build a system that brings customers to your business.
+          </p>
+
+          <div class="features">
+            <div class="feature"><i class="fa-solid fa-check"></i> Strategy + Execution</div>
+            <div class="feature"><i class="fa-solid fa-check"></i> Transparent Reporting</div>
+            <div class="feature"><i class="fa-solid fa-check"></i> Modern Design & Branding</div>
+            <div class="feature"><i class="fa-solid fa-check"></i> Lead-focused Ads</div>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <i class="fas fa-bolt"></i>
-                        <span>Dynexa Digital Shine</span>
-                    </div>
-                    <p class="footer-description">
-                        Your trusted partner for digital marketing excellence. We help businesses thrive online with creative strategies and data-driven results.
-                    </p>
-                    <a href="https://wa.me/918220851828" target="_blank" class="btn btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> WhatsApp Now
-                    </a>
+        <div class="about-right reveal">
+          <div class="why-card">
+            <div class="why-title">Why Choose Us</div>
+            <div class="why-grid">
+              <div class="why">
+                <div class="why-ico"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <div>
+                  <div class="why-h">Creative Designs</div>
+                  <div class="why-p">Premium posters & reels</div>
                 </div>
-                
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Our Services</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+              </div>
+
+              <div class="why">
+                <div class="why-ico"><i class="fa-solid fa-bullseye"></i></div>
+                <div>
+                  <div class="why-h">Lead Generation</div>
+                  <div class="why-p">Real enquiries & conversions</div>
                 </div>
-                
-                <div class="footer-contact">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-phone"></i> +91 82208 51828</p>
-                    <p><i class="fas fa-envelope"></i> dynexa.agency@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Coimbatore, Tamil Nadu</p>
+              </div>
+
+              <div class="why">
+                <div class="why-ico"><i class="fa-solid fa-rocket"></i></div>
+                <div>
+                  <div class="why-h">Fast Delivery</div>
+                  <div class="why-p">Quick turnaround time</div>
                 </div>
+              </div>
+
+              <div class="why">
+                <div class="why-ico"><i class="fa-solid fa-handshake"></i></div>
+                <div>
+                  <div class="why-h">Support</div>
+                  <div class="why-p">Friendly & consistent help</div>
+                </div>
+              </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 Dynexa Digital Shine. All rights reserved.</p>
-            </div>
+
+            <a class="btn btn-primary full mt" href="https://wa.me/918220851828" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i> Get Free Consultation
+            </a>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        const header = document.getElementById('header');
+  <!-- Services -->
+  <section class="section alt" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Our <span class="grad">Services</span></h2>
+        <p>Everything you need to grow your brand online.</p>
+      </div>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
+      <div class="cards">
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-globe"></i></div>
+          <h3>Website Creation</h3>
+          <p>Modern, responsive websites that convert visitors into customers.</p>
+        </div>
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav-container') && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-        });
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <h3>SEO Optimization</h3>
+          <p>Rank on Google and drive consistent organic traffic.</p>
+        </div>
 
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
-        });
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-bullhorn"></i></div>
+          <h3>Meta & Google Ads</h3>
+          <p>High ROI campaigns focused on leads, sales & growth.</p>
+        </div>
 
-        // Contact Form Submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Format WhatsApp message
-            const whatsappMessage = `Hello Dynexa Digital Shine!%0A%0AName: ${name}%0AEmail: ${email}%0AMessage: ${message}%0A%0AI would like to discuss my project with you.`;
-            
-            // Open WhatsApp with pre-filled message
-            window.open(`https://wa.me/918220851828?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Show success message
-            alert('Thank you! Opening WhatsApp to send your message...');
-        });
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-hashtag"></i></div>
+          <h3>Social Media Marketing</h3>
+          <p>Strategy, posting, growth plan & consistent engagement.</p>
+        </div>
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#') return;
-                
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-                }
-            });
-        });
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-video"></i></div>
+          <h3>Video Editing / Reels</h3>
+          <p>Scroll-stopping edits with subtitles, hooks & trend styles.</p>
+        </div>
 
-        // Add animation to elements on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.service-card, .pricing-card, .about-stat-item');
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.style.opacity = "1";
-                    element.style.transform = "translateY(0)";
-                }
-            });
-        };
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-envelope"></i></div>
+          <h3>Email Marketing</h3>
+          <p>Campaigns that convert leads into repeat customers.</p>
+        </div>
 
-        // Set initial state for animation
-        document.querySelectorAll('.service-card, .pricing-card, .about-stat-item').forEach(element => {
-            element.style.opacity = "0";
-            element.style.transform = "translateY(20px)";
-            element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-        });
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-palette"></i></div>
+          <h3>Poster Making</h3>
+          <p>Premium creatives that instantly attract customers.</p>
+        </div>
 
-        // Check on load and scroll
-        window.addEventListener('load', animateOnScroll);
-        window.addEventListener('scroll', animateOnScroll);
-    </script>
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-star"></i></div>
+          <h3>Influencer Marketing</h3>
+          <p>Boost credibility & sales with creator collaborations.</p>
+        </div>
+      
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-comments"></i></div>
+          <h3>Social Media Handling</h3>
+          <p>Complete management of your accounts with consistent posting & engagement.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>Lead Generation</h3>
+          <p>Get quality leads through performance campaigns & optimized funnels.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-camera"></i></div>
+          <h3>Ad Shoot</h3>
+          <p>Professional photo/video shoot support for premium brand ads.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ico"><i class="fa-solid fa-pen-nib"></i></div>
+          <h3>Content Creation</h3>
+          <p>Creative content ideas, scripts & posts that match your brand voice.</p>
+        </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Pricing <span class="grad">Plans</span></h2>
+        <p>Choose a plan that fits your business goals.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card reveal">
+          <div class="price-top">
+            <div class="price-name">Basic</div>
+            <div class="price-tag">Starter Boost</div>
+          </div>
+
+          <ul class="list">
+            <li><i class="fa-solid fa-check"></i> Social Media Handling (2 platforms)</li>
+            <li><i class="fa-solid fa-check"></i> 12 Posts / month</li>
+            <li><i class="fa-solid fa-check"></i> 8 Stories / month</li>
+            <li><i class="fa-solid fa-check"></i> 2 Reels / month</li>
+            <li><i class="fa-solid fa-check"></i> Basic Hashtag + Caption</li>
+            <li><i class="fa-solid fa-check"></i> Monthly Report</li>
+          </ul>
+
+          <div class="bonus">
+            <div class="bonus-t">FREE BONUS</div>
+            <div class="bonus-p">Profile Optimization (Instagram + Facebook)</div>
+          </div>
+
+          <button class="btn btn-whatsapp full price-btn" data-plan="Basic Plan - Starter Boost">
+            <i class="fa-brands fa-whatsapp"></i> DM for Pricing
+          </button>
+        </div>
+
+        <div class="price-card popular reveal">
+          <div class="pop-badge">Most Popular</div>
+
+          <div class="price-top">
+            <div class="price-name">Standard</div>
+            <div class="price-tag">Growth Plan</div>
+          </div>
+
+          <ul class="list">
+            <li><i class="fa-solid fa-check"></i> Social Media Handling (2–3 platforms)</li>
+            <li><i class="fa-solid fa-check"></i> 16 Posts / month</li>
+            <li><i class="fa-solid fa-check"></i> 12 Stories / month</li>
+            <li><i class="fa-solid fa-check"></i> 4 Reels / month</li>
+            <li><i class="fa-solid fa-check"></i> Lead Generation Setup (Meta)</li>
+            <li><i class="fa-solid fa-check"></i> Meta Ads Monitoring</li>
+            <li><i class="fa-solid fa-check"></i> Monthly Performance Report</li>
+          </ul>
+
+          <div class="bonus">
+            <div class="bonus-t">FREE BONUS</div>
+            <div class="bonus-p">1 Poster Design + 1 Ad Creative Bonus</div>
+          </div>
+
+          <button class="btn btn-primary full price-btn" data-plan="Standard Plan - Growth Plan">
+            <i class="fa-brands fa-whatsapp"></i> DM for Pricing
+          </button>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-top">
+            <div class="price-name">Premium</div>
+            <div class="price-tag">Scale Pro</div>
+          </div>
+
+          <ul class="list">
+            <li><i class="fa-solid fa-check"></i> Website (Landing Page)</li>
+            <li><i class="fa-solid fa-check"></i> Full SEO Optimization</li>
+            <li><i class="fa-solid fa-check"></i> Social Media Handling (3 platforms)</li>
+            <li><i class="fa-solid fa-check"></i> 20 Posts / month</li>
+            <li><i class="fa-solid fa-check"></i> 8 Reels / month</li>
+            <li><i class="fa-solid fa-check"></i> Meta + Google Ads Setup</li>
+            <li><i class="fa-solid fa-check"></i> Monthly Strategy Call</li>
+          </ul>
+
+          <div class="bonus">
+            <div class="bonus-t">FREE BONUS</div>
+            <div class="bonus-p">Content Calendar + Shoot Planning Support</div>
+          </div>
+
+          <button class="btn btn-whatsapp full price-btn" data-plan="Premium Plan - Scale Pro">
+            <i class="fa-brands fa-whatsapp"></i> DM for Pricing
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Let’s <span class="grad">Work Together</span></h2>
+        <p>Send your requirement — we’ll reply quickly.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-left reveal">
+          <div class="contact-box">
+            <div class="c-item">
+              <div class="c-ico"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <div class="c-h">Phone</div>
+                <a class="c-link" href="tel:+918220851828">+91 82208 51828</a>
+              </div>
+            </div>
+
+            <div class="c-item">
+              <div class="c-ico"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="c-h">Email</div>
+                <a class="c-link" href="mailto:dynexa.agency@gmail.com">dynexa.agency@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="c-item">
+              <div class="c-ico"><i class="fa-brands fa-instagram"></i></div>
+              <div>
+                <div class="c-h">Instagram</div>
+                <a class="c-link" href="https://instagram.com/dynexa.agency" target="_blank" rel="noopener">@dynexa.agency</a>
+              </div>
+            </div>
+
+            <div class="c-item">
+              <div class="c-ico"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="c-h">Location</div>
+                <div class="c-link muted">Coimbatore, Tamil Nadu</div>
+              </div>
+            </div>
+
+            <div class="social">
+              <a href="https://instagram.com/dynexa.agency" target="_blank" rel="noopener" class="s-btn" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://wa.me/918220851828" target="_blank" rel="noopener" class="s-btn" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+              <a href="mailto:dynexa.agency@gmail.com" class="s-btn" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-right reveal">
+          <form class="form" id="contactForm">
+            <div class="form-title">Send a Message</div>
+
+            <div class="row">
+              <input type="text" id="name" placeholder="Your Name" required />
+              <input type="email" id="email" placeholder="Your Email" required />
+            </div>
+
+            <textarea id="message" placeholder="Tell us about your business / requirement..." required></textarea>
+
+            <button type="submit" class="btn btn-primary full">
+              <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+            </button>
+
+            <div class="form-note">
+              By submitting, you’ll be redirected to WhatsApp with your message.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="your-logo-image.png" alt="Dynexa Logo" class="foot-logo" />
+          <div>
+            <div class="foot-name">Dynexa Agency</div>
+            <div class="foot-sub muted">Digital Marketing & Creative Studio</div>
+          </div>
+        </div>
+        <p class="foot-desc muted">
+          We help businesses grow online with Ads, SEO, Social Media & High-converting websites.
+        </p>
+
+        <a class="btn btn-whatsapp" href="https://wa.me/918220851828" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Now
+        </a>
+      </div>
+
+      <div>
+        <div class="foot-title">Quick Links</div>
+        <div class="foot-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="foot-title">Contact</div>
+        <div class="foot-info muted">
+          <div><i class="fa-solid fa-phone"></i> +91 82208 51828</div>
+          <div><i class="fa-solid fa-envelope"></i> dynexa.agency@gmail.com</div>
+          <div><i class="fa-solid fa-location-dot"></i> Coimbatore</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copy muted">© <span id="year"></span> Dynexa Agency. All rights reserved.</div>
+  </footer>
+
+  <!-- Floating Buttons -->
+  <a class="float-whatsapp" href="https://wa.me/918220851828" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
 </body>
 </html>
